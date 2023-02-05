@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="style.css"
+      rel="stylesheet"
+      
+    />
+    <title>BlogSite</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Login System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#" id="logout">Logout</a>
+            </li>
+           
+          </ul>
+        </div>
+      </div>
+   
+    </nav>
+
+
+
+ <script src="script.js" ></script>
+ <script>
+  window.onload = function(){
+    const setLogin = localStorage.getItem("Login");
+    console.log(setLogin)
+    if(setLogin == "true"){
+      console.log("Login Successfully");
+      
+    }
+    else{
+      console.log("Login Failed");
+      window.location.href = "Login.html"
+    }
+  }
+  document.getElementById('logout').addEventListener("click", function(){
+    console.log("logout Clicked");
+    try {
+      localStorage.removeItem("Login")
+      window.location.href = "./Login.html";
+
+      
+    } catch (error) {
+      console.log("Failed to Logged Out");
+      alert("Please try Again");
+      
+    }
+  })
+
+
+ </script>
+ </body>
+</html>

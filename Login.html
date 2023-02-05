@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="style.css"
+      rel="stylesheet"
+      
+    />
+    <title>Login</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="Login.html" id="logo">Login System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="">Logout</a>
+              </li>
+             
+            </ul>
+          </div>
+        </div>
+     
+      </nav>
+    <!-- 
+    library = Your codes call library
+    framework = framework calls your Code -->
+    <!-- React is a unopiniate Framework And library -->
+    <div class="container">
+        <div class="card mt-4">
+            <h4 class="text-center mt-4">
+                Login
+            </h4>
+            <div class="row">
+                <div class="col-md-6 offset-3">
+                    <form >
+                        <div class="form-group">
+                            <label for="">User Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" class="form-control" id="pass">
+                        </div>
+                        
+                        <div class="form-group text-center mt-2 mb-4">
+                            <button class="btn btn-outline-danger" onclick="Login()">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" ></script>
+    <script>
+            window.onload = function(){
+                const setLogin = localStorage.getItem("Login");
+                console.log(setLogin)
+              if(setLogin == "true"){
+                console.log("User is logged in",setLogin);
+                window.location.href = "./index.html";
+                
+              }
+              // else{
+              //   console.log("Login Failed");
+              //   window.location.href = "Login.html";
+              // }
+          }
+        function Login(){
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('pass').value;
+            if( email === "kushal@gmail.com" && password === "1"){
+                try{
+                    localStorage.setItem("Login","true");
+                    alert("Login Success")
+                    window.location.href = "index.html";
+                 
+                }
+                catch(e){
+                    alert('Login Failed');
+                }
+          
+            }
+
+        }
+        // document.getElementById('logo').addEventListener("mouseover",function(){
+        //   alert("hello")
+        // })
+       
+        
+    </script>
+  </body>
+</html>
